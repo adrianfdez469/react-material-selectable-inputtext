@@ -78,7 +78,7 @@ or
 
 # API Reference
 
-#### Types of props are important, be aware that of the types that are passed must be array of objects with the shape of:
+> #### Types of props are important, be aware that the types that are passed to `optionsList` and `excludedOptions` must be array of objects with the shape of:
 
 ```es6
 [
