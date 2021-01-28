@@ -78,7 +78,19 @@ or
 
 # API Reference
 
-| Prop              | Type                                         | Required | Description                                                                                                |
+#### Types of props are important, be aware that of the types that are passed must be array of objects with the shape of:
+
+```es6
+[
+	{
+		id: "id1",
+		text: "Text to show",
+		// any other properties you want
+	},
+];
+```
+
+| Prop              | Type \*                                      | Required | Description                                                                                                |
 | ----------------- | -------------------------------------------- | -------- | ---------------------------------------------------------------------------------------------------------- |
 | `optionsList`     | `{ id: string, text: string }[]`             | true     | Should contain the full list of posibles items to show for select                                          |
 | `excludedOptions` | `{ id: text, text: string }[]`               | false    | Should contain the items that you dont want to show anymore, could be the list of previous selected items. |
@@ -87,7 +99,7 @@ or
 
 # Creator
 
-- **Adrián Fernández Martínez** - _Trabajo Inicial_ - [adrianfdez469](https://github.com/adrianfdez469)
+- **Adrián Fernández Martínez** - [adrianfdez469](https://github.com/adrianfdez469)
 
 # License
 
