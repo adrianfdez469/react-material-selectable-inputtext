@@ -50,4 +50,10 @@ IF THE ADDED OBJECT IS NOT FROM THE LIST, THE ID PROPERTY IS GOING TO BE NULL
 
 # Demos of the package in action
 
-# Instructions for contributors
+## DEMO APP
+
+[Select or new white countries](https://adrianfdez469.github.io/demo-material-selectable-input/)
+
+## DEMO CODE
+
+[Code used for the demo](https://github.com/adrianfdez469/demo-material-selectable-input)
