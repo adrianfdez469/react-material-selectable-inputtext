@@ -7,52 +7,51 @@ and the code of the demo (hete)[https://github.com/adrianfdez469/demo-material-s
 
 # Code Example
 
-```
-import React from 'react';
-import InputSelect from 'react-material-selectable-inputtext';
+```es6
+import React from "react";
+import InputSelect from "react-material-selectable-inputtext";
 
 export default () => {
+	const [allCountries, setAllCountries] = React.useState([]);
+	const [selected, setSelected] = React.useState([]);
 
-  const [allCountries, setAllCountries] = React.useState([]);
-  const [selected, setSelected] = React.useState([]);
+	// Populating all countries
+	React.useEffect(() => {
+		(async () => {
+			const countriesResp = await fetch("https://restcountries.eu/rest/v2/all");
+			if (countriesResp.ok) {
+				const countries = await countriesResp.json();
+				const mappedCountries = countries.map((c) => {
+					return { id: c.name, text: c.name, population: c.population };
+				});
+				setAllCountries(mappedCountries);
+			}
+		})();
+	}, []);
 
-  // Populating all countries
-  React.useEffect(() => {
-    (async () => {
-      const countriesResp = await fetch('https://restcountries.eu/rest/v2/all');
-      if (countriesResp.ok) {
-        const countries = await countriesResp.json();
-        const mappedCountries = countries.map(c => {
-          return { id: c.name, text: c.name, population: c.population }
-        });
-        setAllCountries(mappedCountries);
-      }
-    })()
-  }, []);
+	const onAddHandler = (item) => {
+		// Add more logic if you want
+		setSelected([...selected, item]);
+	};
 
-  const onAddHandler = (item) => {
-    // Add more logic if you want
-    setSelected([...selected, item]);
-  }
-
-  return (
-    <div style={{ margin: '20px', fontSize: '20px' }}>
-      <InputSelect
-        optionsList={allCountries}
-        excludedOptions={selected}
-        onAdd={onAddHandler}
-        textFieldProps={{
-          variant: 'outlined'
-        }}
-      />
-      {
-        selected.map(
-          item => <div key={item.text}>{`Country: ${item.text} |  Population: ${item.population}`}</div>
-        )}
-    </div>
-  );
+	return (
+		<div style={{ margin: "20px", fontSize: "20px" }}>
+			<InputSelect
+				optionsList={allCountries}
+				excludedOptions={selected}
+				onAdd={onAddHandler}
+				textFieldProps={{
+					variant: "outlined",
+				}}
+			/>
+			{selected.map((item) => (
+				<div
+					key={item.text}
+				>{`Country: ${item.text} |  Population: ${item.population}`}</div>
+			))}
+		</div>
+	);
 };
-...
 ```
 
 # Motivation
