@@ -1,0 +1,52 @@
+{
+  "name": "react-material-selectable-inputtext",
+  "version": "1.0.0",
+  "description": "Material-ui textInput component that allow choose between several options.",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "rollup -c",
+    "start": "rollup -c -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adrianfdez469/react-material-selectable-inputtext.git"
+  },
+  "keywords": [
+    "inputText",
+    "input",
+    "select",
+    "inputSelect",
+    "material",
+    "material-ui"
+  ],
+  "author": "Adrián Fernández Martínez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adrianfdez469/react-material-selectable-inputtext/issues"
+  },
+  "homepage": "https://github.com/adrianfdez469/react-material-selectable-inputtext#readme",
+  "devDependencies": {
+    "@material-ui/core": "^4.11.3",
+    "@material-ui/icons": "^4.11.2",
+    "@rollup/plugin-node-resolve": "^11.1.0",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "babel-core": "^6.26.3",
+    "babel-runtime": "^6.26.0",
+    "react": "file:../example/testing-react-material-selectable-inputtext/node_modules/react",
+    "react-dom": "^17.0.1",
+    "rollup": "^2.38.0",
+    "rollup-plugin-typescript2": "^0.29.0",
+    "typescript": "^4.1.3"
+  },
+  "peerDependencies": {
+    "react": "file:..\\example\\testing-react-material-selectable-inputtext\\node_modules\\react",
+    "react-dom": "^17.0.1"
+  },
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "@types/material-ui": "^0.21.8"
+  }
+}
