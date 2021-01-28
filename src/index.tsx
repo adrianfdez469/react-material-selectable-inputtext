@@ -25,8 +25,8 @@ export type MenuItemType = { id: string|number|null, text: string };
 export type PropTypes = {
   textFieldProps?: TextFieldProps,
   optionsList: MenuItemType[],
-  excludedOptions: MenuItemType[],
-  onAdd: (data: MenuItemType) => void
+  excludedOptions?: MenuItemType[],
+  onAdd?: (data: MenuItemType) => void
 }
 
 
@@ -64,10 +64,12 @@ const InputTextSelect:React.FC<PropTypes> = (props) => {
       const index = optionsList.findIndex(
         (optList) => optList.text.toLowerCase().trim() === inputData.text.toLowerCase().trim()
       );
-      if (index > -1) {
-        onAdd(optionsList[index]);
-      } else {
-        onAdd(inputData);
+      if(onAdd){
+        if (index > -1) {
+          onAdd(optionsList[index]);
+        } else {
+          onAdd(inputData);
+        }
       }
     }
     setInputData(null);
@@ -91,10 +93,12 @@ const InputTextSelect:React.FC<PropTypes> = (props) => {
   // helpers
   const menuItems = optionsList
     .filter(
-      (optList) =>
-        excludedOptions.findIndex(
+      (optList) => {
+        if(!excludedOptions) return true;
+        return excludedOptions.findIndex(
           (selectedPL) => optList.text.toLowerCase().trim() === selectedPL.text.toLowerCase().trim()
-        ) === -1
+        ) === -1;
+      }
     )
     .filter((optList) => {
       if (!inputData) return false;

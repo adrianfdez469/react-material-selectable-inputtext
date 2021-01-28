@@ -1,59 +1,109 @@
 # react-material-selectable-textinput
 
-Material-ui textInput component that allow choose between several options.
+Material-ui textInput component that allow choose between several options and add more by writing and adding.
 
-# Why a package was created
+You can see a demo (here)[https://adrianfdez469.github.io/demo-material-selectable-input/]
+and the code of the demo (hete)[https://github.com/adrianfdez469/demo-material-selectable-input]
 
-This package arises from the non-existence in the material-ui library of a component that will merge the
-functionalities of inputText and Select into one.
+# Code Example
 
-# What problem the package solves
+```
+import React from 'react';
+import InputSelect from 'react-material-selectable-inputtext';
 
-With this package you can have an inputText with the select functionality. While you type on it, you can see
-and select one of the available options that pop up.
+export default () => {
 
-# Preconditions
+  const [allCountries, setAllCountries] = React.useState([]);
+  const [selected, setSelected] = React.useState([]);
 
-For this to work you need to have @material-ui/core and @material-ui/icons installed on your project.
+  // Populating all countries
+  React.useEffect(() => {
+    (async () => {
+      const countriesResp = await fetch('https://restcountries.eu/rest/v2/all');
+      if (countriesResp.ok) {
+        const countries = await countriesResp.json();
+        const mappedCountries = countries.map(c => {
+          return { id: c.name, text: c.name, population: c.population }
+        });
+        setAllCountries(mappedCountries);
+      }
+    })()
+  }, []);
+
+  const onAddHandler = (item) => {
+    // Add more logic if you want
+    setSelected([...selected, item]);
+  }
+
+  return (
+    <div style={{ margin: '20px', fontSize: '20px' }}>
+      <InputSelect
+        optionsList={allCountries}
+        excludedOptions={selected}
+        onAdd={onAddHandler}
+        textFieldProps={{
+          variant: 'outlined'
+        }}
+      />
+      {
+        selected.map(
+          item => <div key={item.text}>{`Country: ${item.text} |  Population: ${item.population}`}</div>
+        )}
+    </div>
+  );
+};
+...
+```
+
+# Motivation
+
+This package arises from the non-existence in the material-ui library of a component that will merge the functionalities of TextField and Select into one single component.
+With this package you can have a TextField with the Select functionality. While you type on it, you can see and select one of the available options that pop up.
+It uses the `material-ui` (TextField)[https://material-ui.com/es/components/text-fields/] component, so it behaves as one.
+
+# Instalation
+
+### Pre-requisitos
+
+Before yo use this pacakge be awere that it needs `@material-ui/core@^4.11.3` and `@material-ui/icons@^4.11.2` to work properly.
 
 `npm install @material-ui/core @material-ui/icons`
 or
 `yarn add @material-ui/core @material-ui/icons`
 
-# Install
+### Install
 
 `npm install react-material-selectable-inputtext`
 or
 `yarn add react-material-selectable-inputtext`
 
-# All valid configurations/props of the package
+# API Reference
 
-`optionsList` is a prop of type: `{ id: text|string|null, text: string }[]` Should contain the full list of posibles items to show for select.
-`excludedOptions` is a prop of type: `{ id: text|string|null, text: string }[]` Should contain the items that you dont want to show anymore, could be the list of previous selected items.
-`onAdd` is a prop of a void function type that recive a the selected or writend object of type `{ id: text|string|null, text: string }[]`.
-IF THE ADDED OBJECT IS NOT FROM THE LIST, THE ID PROPERTY IS GOING TO BE NULL
-`textFieldProps` is an optional object that recieves any property of the TextField component of `@material-ui/core/TextField`.
+| Prop              | Type                                        | Required            | Description                                                                                    |
+| ----------------- | :------------------------------------------ | :------------------ | ---------------------------------------------------------------------------------------------- | ----------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `optionsList`     | `{ id: text                                 | string              | null, text: string }[]`                                                                        | true                                            | Should contain the full list of posibles items to show for select                                          |
+| `excludedOptions` | `{ id: text                                 | string              | null, text: string }[]`or`[]`                                                                  | false                                           | Should contain the items that you dont want to show anymore, could be the list of previous selected items. |
+| `onAdd`           | `(item: {id: 'string'                       | 'number'}) => void` | false                                                                                          | Callback function to run when an item is added. |
+| `textFieldProps`  | `TextFieldProps` from @material-ui/core lib | false               | Object that recieves any property of the TextField component of `@material-ui/core/TextField`. |
 
-# Example snippets
+# Creator
 
-```
-<InputSelect
-  optionsList={allCountries}
-  excludedOptions={list}
-  onAdd={onAddHandler}
-  textFieldProps={{
-    variant="outlined"
-  }}
-/>
-...
-```
+- **Adrián Fernández Martínez** - _Trabajo Inicial_ - [adrianfdez469](https://github.com/adrianfdez469)
 
-# Demos of the package in action
+# License
 
-## DEMO APP
+This project is under MIT License - look the file [LICENSE.md](LICENSE.md) for more details.
 
-[Select or write new countries](https://adrianfdez469.github.io/demo-material-selectable-input/)
+## Contributing 🖇️
 
-## DEMO CODE
+Please read the [CONTRIBUTING.md](CONTRIBUTING.md) for more details of our conduct code, and the proccess to send pull requests.
 
-[Code used for the demo](https://github.com/adrianfdez469/demo-material-selectable-input)
+## Expressions of Gratitude 🎁
+
+- Tell others about this project 📢
+- Invite someone on the team to have a beer 🍺 or coffee ☕ or a coffe.
+- Give thanks publicly 🤓.
+
+---
+
+⌨️ with ❤️ by [adrianfdez469](https://github.com/adrianfdez469) 😊
