@@ -79,12 +79,12 @@ or
 
 # API Reference
 
-| Prop              | Type                                        | Required            | Description                                                                                    |
-| ----------------- | :------------------------------------------ | :------------------ | ---------------------------------------------------------------------------------------------- | ----------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| `optionsList`     | `{ id: text                                 | string              | null, text: string }[]`                                                                        | true                                            | Should contain the full list of posibles items to show for select                                          |
-| `excludedOptions` | `{ id: text                                 | string              | null, text: string }[]`or`[]`                                                                  | false                                           | Should contain the items that you dont want to show anymore, could be the list of previous selected items. |
-| `onAdd`           | `(item: {id: 'string'                       | 'number'}) => void` | false                                                                                          | Callback function to run when an item is added. |
-| `textFieldProps`  | `TextFieldProps` from @material-ui/core lib | false               | Object that recieves any property of the TextField component of `@material-ui/core/TextField`. |
+| Prop              | Type                                         | Required | Description                                                                                                |
+| ----------------- | -------------------------------------------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| `optionsList`     | `{ id: string, text: string }[]`             | true     | Should contain the full list of posibles items to show for select                                          |
+| `excludedOptions` | `{ id: text, text: string }[]`               | false    | Should contain the items that you dont want to show anymore, could be the list of previous selected items. |
+| `onAdd`           | `(item: {id: string, text: string}) => void` | false    | Callback function to run when an item is added.                                                            |
+| `textFieldProps`  | `TextFieldProps` from @material-ui/core lib  | false    | Object that recieves any property of the TextField component of `@material-ui/core/TextField`.             |
 
 # Creator
 
