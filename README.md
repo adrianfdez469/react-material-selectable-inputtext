@@ -52,7 +52,7 @@ IF THE ADDED OBJECT IS NOT FROM THE LIST, THE ID PROPERTY IS GOING TO BE NULL
 
 ## DEMO APP
 
-[Select or new white countries](https://adrianfdez469.github.io/demo-material-selectable-input/)
+[Select or write new countries](https://adrianfdez469.github.io/demo-material-selectable-input/)
 
 ## DEMO CODE
 
