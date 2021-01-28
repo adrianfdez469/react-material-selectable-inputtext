@@ -12,6 +12,14 @@ functionalities of inputText and Select into one.
 With this package you can have an inputText with the select functionality. While you type on it, you can see
 and select one of the available options that pop up.
 
+# Preconditions
+
+For this to work you need to have @material-ui/core and @material-ui/icons installed on your project.
+
+`npm install @material-ui/core @material-ui/icons`
+or
+`yarn add @material-ui/core @material-ui/icons`
+
 # Install
 
 `npm install react-material-selectable-inputtext`
