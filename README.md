@@ -8,50 +8,35 @@ and the code of the demo (hete)[https://github.com/adrianfdez469/demo-material-s
 # Code Example
 
 ```es6
-import React from "react";
+import "./App.css";
 import InputSelect from "react-material-selectable-inputtext";
 
-export default () => {
-	const [allCountries, setAllCountries] = React.useState([]);
-	const [selected, setSelected] = React.useState([]);
-
-	// Populating all countries
-	React.useEffect(() => {
-		(async () => {
-			const countriesResp = await fetch("https://restcountries.eu/rest/v2/all");
-			if (countriesResp.ok) {
-				const countries = await countriesResp.json();
-				const mappedCountries = countries.map((c) => {
-					return { id: c.name, text: c.name, population: c.population };
-				});
-				setAllCountries(mappedCountries);
-			}
-		})();
-	}, []);
-
-	const onAddHandler = (item) => {
-		// Add more logic if you want
-		setSelected([...selected, item]);
-	};
-
+const App = () => {
+	const _list = [
+		{ id: 1, text: "A" },
+		{ id: 2, text: "AB" },
+		{ id: 3, text: "ABC" },
+		{ id: 4, text: "ABCD" },
+	];
+	const _exclude = [];
 	return (
 		<div style={{ margin: "20px", fontSize: "20px" }}>
 			<InputSelect
-				optionsList={allCountries}
-				excludedOptions={selected}
-				onAdd={onAddHandler}
+				optionsList={_list}
+				excludedOptions={_exclude}
+				onAdd={(selected) => {
+					console.log(selected);
+				}}
 				textFieldProps={{
 					variant: "outlined",
+					label: "Field",
 				}}
 			/>
-			{selected.map((item) => (
-				<div
-					key={item.text}
-				>{`Country: ${item.text} |  Population: ${item.population}`}</div>
-			))}
 		</div>
 	);
 };
+
+export default App;
 ```
 
 # Motivation
