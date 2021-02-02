@@ -2,8 +2,8 @@
 
 Material-ui textInput component that allow choose between several options and add more by writing and adding.
 
-You can see a demo (here)[https://adrianfdez469.github.io/demo-material-selectable-input/]
-and the code of the demo (hete)[https://github.com/adrianfdez469/demo-material-selectable-input]
+You can see a demo [here](https://adrianfdez469.github.io/demo-material-selectable-input/)
+and the code of the demo [here](https://github.com/adrianfdez469/demo-material-selectable-input)
 
 # Code Example
 
@@ -43,7 +43,7 @@ export default App;
 
 This package arises from the non-existence in the material-ui library of a component that will merge the functionalities of TextField and Select into one single component.
 With this package you can have a TextField with the Select functionality. While you type on it, you can see and select one of the available options that pop up.
-It uses the `material-ui` (TextField)[https://material-ui.com/es/components/text-fields/] component, so it behaves as one.
+It uses the `material-ui` [TextField](https://material-ui.com/es/components/text-fields/) component, so it behaves as one.
 
 # Instalation
 
@@ -75,12 +75,12 @@ or
 ];
 ```
 
-| Prop              | Type \*                                      | Required | Description                                                                                                |
-| ----------------- | -------------------------------------------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| `optionsList`     | `{ id: string, text: string }[]`             | true     | Should contain the full list of posibles items to show for select                                          |
-| `excludedOptions` | `{ id: text, text: string }[]`               | false    | Should contain the items that you dont want to show anymore, could be the list of previous selected items. |
-| `onAdd`           | `(item: {id: string, text: string}) => void` | false    | Callback function to run when an item is added.                                                            |
-| `textFieldProps`  | `TextFieldProps` from @material-ui/core lib  | false    | Object that recieves any property of the TextField component of `@material-ui/core/TextField`.             |
+| Prop              | Type \*                                      | Required | Description                                                                                                                             |
+| ----------------- | -------------------------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| `optionsList`     | `{ id: string, text: string }[]`             | true     | Should contain the full list of posibles items to show for select                                                                       |
+| `excludedOptions` | `{ id: text, text: string }[]`               | false    | Should contain the items that you dont want to show anymore, could be the list of previous selected items.                              |
+| `onAdd`           | `(item: {id: string, text: string}) => void` | false    | Callback function to run when an item is added.                                                                                         |
+| `textFieldProps`  | `TextFieldProps` from @material-ui/core lib  | false    | Object that recieves any property of the TextField component of [@material-ui/core/TextField](https://material-ui.com/api/text-field/). |
 
 # Creator
 
